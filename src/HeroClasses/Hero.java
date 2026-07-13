@@ -86,6 +86,10 @@ public abstract class Hero {
         return this.getClass().getSimpleName() + ";" + name + ";" + hp + ";" + attackDamage + ";" + speed + ";" + timeCreate;
     }
 
+    public String getClassName(){
+        return this.getClass().getSimpleName();
+    }
+
     public int getCriticalChance() {
         return criticalChance;
     }

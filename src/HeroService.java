@@ -114,9 +114,18 @@ public class HeroService {
         }
     }
     public void sortHero(){
-         heroes.sort((hero1,hero2) -> hero1.getName().compareTo(hero2.getName()));
-         System.out.println("Отсортированный вид героев");
-         showAllHero();
+        System.out.println("Выберите тип сортировки. \n 1. По имени. \n 2. По классу.");
+        int value = inputService.readIntUntilCorrect();
+        switch (value){
+            case 1:
+                heroes.sort((hero1,hero2) -> hero1.getName().compareTo(hero2.getName()));
+                break;
+            case 2:
+                heroes.sort((Hero1, Hero2) -> Hero1.getClassName().compareTo(Hero2.getClassName()));
+                break;
+        }
+        System.out.println("Отсортированный вид героев");
+        showAllHero();
     }
     public boolean exitMenu(){
         return false;
