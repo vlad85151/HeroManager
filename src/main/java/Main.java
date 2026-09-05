@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.Random;
 
 public class Main {
@@ -23,7 +22,7 @@ public class Main {
                     heroService.addHero();
                     break;
                 case 2: // удалить героя
-                    heroService.deleteHero();
+                    //heroService.deleteHero();
                     break;
                 case 3: // найти героя
                     heroService.findForName();

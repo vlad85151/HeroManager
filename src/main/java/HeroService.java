@@ -2,6 +2,9 @@ import HeroClasses.Assassin;
 import HeroClasses.Hero;
 import HeroClasses.Mage;
 import HeroClasses.Warrior;
+import javafx.beans.Observable;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -9,13 +12,17 @@ import java.util.List;
 
 public class HeroService {
     private Scanner scan = new Scanner(System.in);
-    private List<Hero> heroes = new ArrayList<>();
+    private ObservableList<Hero> heroes = FXCollections.observableArrayList();
     private List<Hero> aliveHeroes = new ArrayList<>();
     private FileService fileService = new FileService(this);
     private BattleService battleService = new BattleService();
     private InputService inputService = new InputService();
 
-
+    public void addHero(String name, int hp, int attackDamage, int speed, String classHero){
+        if (classHero.equals("Warrior")){heroes.add(new Warrior(name, hp, attackDamage, speed));}
+        else if (classHero.equals("Assassin")){heroes.add(new Assassin(name, hp, attackDamage, speed));}
+        else if (classHero.equals("Mage")){heroes.add(new Mage(name, hp, attackDamage, speed));}
+    }
 
     public void addHero(){
         System.out.println("Выберите класс героя:\n1. Воин.\n2. Убийца.\n3. Маг.");
@@ -46,17 +53,20 @@ public class HeroService {
     public void addHeroForLoad(Hero hero){
         heroes.add(hero);
     }
-    public List<Hero> getHeroes(){
+    public ObservableList<Hero> getHeroes(){
         return heroes;
     }
-    public void showAllHero(){
-        int heroIndex = 1;
-        System.out.println("---------------------------");
-        for(Hero el : heroes){
-            System.out.println(heroIndex + ". " + el.toString());
-            heroIndex++;
-        }
-        System.out.println("---------------------------");
+
+
+
+    public List<String> showAllHero(){
+          int heroIndex = 1;
+          List<String> heroesList = new ArrayList<String>();
+          for (Hero el : heroes){
+              heroesList.add(heroIndex + ". " + el.toString());
+              heroIndex+=1;
+          }
+          return heroesList;
     }
     public Integer setCountValue(){
         showTextMenu();
@@ -101,6 +111,11 @@ public class HeroService {
         }
         System.out.println("---------------------------");
     }
+
+    public void deleteHero(Hero hero) {
+        heroes.remove(hero);
+    }
+
     public void deleteHero() {
         System.out.println("Выберите героя для удаления");
         showAllHero();
