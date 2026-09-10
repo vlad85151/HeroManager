@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+
+
+<?import javafx.geometry.Insets?>
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="MainController"
+      spacing="10">
+
+    <HBox spacing="20">
+
+        <padding>
+            <Insets top="20.0" right="0.0" bottom="0.0" left="20.0"/>
+        </padding>
+
+        <Button text="Загрузить" onAction="#showLoadHeroes"/>
+        <Button text="Сохранить" onAction="#showSaveHeroes"/>
+        <Button text="Добавить" onAction="#showAddHero"/>
+        <Button text="Удалить" onAction="#showDeleteHero"/>
+        <Button text="Редактировать" onAction="#showEditHero"/>
+    </HBox>
+
+    <StackPane fx:id="contentPane">
+
+    </StackPane>
+
+</VBox>

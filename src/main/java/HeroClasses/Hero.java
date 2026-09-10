@@ -30,18 +30,26 @@ public abstract class Hero {
     public int getHp() {
         return hp;
     }
-    public void setHp(int finDamage){
+    public void setHp(int hp){this.hp = hp;}
+
+    public int getSpeed(){
+        return speed;
+    }
+    public void setSpeed(int speed){this.speed = speed;}
+
+    public int getAttackDamage(){
+        return attackDamage;
+    }
+    public void setAttackDamage(int attackDamage){this.attackDamage = attackDamage;};
+
+    public void setHpAfterDamage(int finDamage){
         hp -= finDamage;
     }
     public String getName() {
         return name;
     }
-    public int getAttackDamage(){
-        return attackDamage;
-    }
-    public int getSpeed(){
-        return speed;
-    }
+
+
     public int getDefence(){
         return defence;
     }

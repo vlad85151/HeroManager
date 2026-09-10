@@ -15,8 +15,8 @@ public class Warrior extends Hero {
             return 0;
         }else {
             if ((super.getHp() - finDamage) <= 0){
-                super.setHp(super.getHp());
-            } else super.setHp(finDamage);
+                super.setHpAfterDamage(super.getHp());
+            } else super.setHpAfterDamage(finDamage);
             return finDamage;
         }
     }

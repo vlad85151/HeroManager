@@ -16,6 +16,7 @@ public class FileService {
     }
     public void saveData(){
         try (FileWriter writer = new FileWriter("HeroData.txt")){
+            System.out.println(heroService.getHeroes());
             for (Hero el : heroService.getHeroes()){
                 writer.write(el.saveInfo());
                 writer.write("\n");
