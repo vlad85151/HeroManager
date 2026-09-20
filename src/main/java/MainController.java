@@ -1,6 +1,9 @@
+import HeroClasses.Hero;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.ListCell;
+import javafx.scene.control.ListView;
 import javafx.scene.layout.StackPane;
 
 import java.io.IOException;
@@ -12,6 +15,8 @@ public class MainController {
 
     @FXML
     private StackPane contentPane;
+
+
 
     @FXML
     private void showAddHero() throws IOException {
@@ -95,6 +100,24 @@ public class MainController {
         loader.setControllerFactory(controllerClass -> {
             if (controllerClass == EditHeroesController.class) {
                 return new EditHeroesController(heroService, fileService);
+            }
+
+            return null;
+        });
+
+        Parent view = loader.load();
+
+        contentPane.getChildren().setAll(view);
+    }
+
+    @FXML
+    private void showFindHero() throws IOException {
+        FXMLLoader loader =
+                new FXMLLoader(getClass().getResource("FindHero.fxml"));
+
+        loader.setControllerFactory(controllerClass -> {
+            if (controllerClass == FindHeroController.class) {
+                return new FindHeroController(heroService);
             }
 
             return null;

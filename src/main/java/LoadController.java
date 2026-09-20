@@ -1,8 +1,13 @@
 import HeroClasses.Hero;
+import javafx.beans.Observable;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+
+import java.util.ArrayList;
+import java.util.Optional;
 
 
 public class LoadController
@@ -49,6 +54,9 @@ public class LoadController
     private String tryLoadHeroes(){
         fileService.loadData();
         heroListView.setItems(heroService.getHeroes());
+
+        //System.out.println(heroService.findHero("Vlad"));
+
         return "Загрузка прошла успешно";
     }
 }

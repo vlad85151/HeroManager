@@ -23,6 +23,7 @@
         <Button text="Добавить" onAction="#showAddHero"/>
         <Button text="Удалить" onAction="#showDeleteHero"/>
         <Button text="Редактировать" onAction="#showEditHero"/>
+        <Button text="Найти" onAction="#showFindHero"/>
     </HBox>
 
     <StackPane fx:id="contentPane">

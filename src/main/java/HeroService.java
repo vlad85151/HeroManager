@@ -7,6 +7,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.Scanner;
 import java.util.List;
 
@@ -163,4 +164,14 @@ public class HeroService {
             } else return aliveHeroes.get(index - 1);
         }
     }
-}
+
+    public Optional<Hero> findHero(String name1){
+            for (Hero hero : heroes) {
+                if (hero.getName().equals(name1)) {
+                    return Optional.of(hero);
+                }
+            }
+            return Optional.empty();
+        }
+    }
+

@@ -104,7 +104,6 @@ public class EditHeroesController {
                 Integer.parseInt(damageField.getText()) < 0 ||
                 Integer.parseInt(speedField.getText()) < 0
         ) {resultLabel.setText("Недопустимые значения характеристик");return;}
-
         Hero heroSelected = heroListView.getSelectionModel().getSelectedItem();
         heroSelected.setHp(Integer.parseInt(hpField.getText()));
         heroSelected.setAttackDamage(Integer.parseInt(damageField.getText()));

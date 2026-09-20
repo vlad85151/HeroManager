@@ -25,7 +25,7 @@ public class Main {
                     //heroService.deleteHero();
                     break;
                 case 3: // найти героя
-                    heroService.findForName();
+                    //heroService.findForName();
                     break;
                 case 4: // показать всех героев
                     heroService.showAllHero();
